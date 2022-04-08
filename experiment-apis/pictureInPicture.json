@@ -1,0 +1,21 @@
+[
+  {
+    "namespace": "pictureInPictureParent",
+    "description": "Parent process methods for controlling the Picture-in-Picture feature.",
+    "functions": [
+      {
+        "name": "setOverridesForBilibili",
+        "type": "function",
+        "description": "Set Picture-in-Picture feature overrides for Bilibili",
+        "parameters": [
+          {
+            "name": "overrides",
+            "type": "object",
+            "additionalProperties": { "type": "any" },
+            "description": "The Picture-in-Picture feature overrides to set for Bilibili"
+          }
+        ]
+      }
+    ]
+  }
+]

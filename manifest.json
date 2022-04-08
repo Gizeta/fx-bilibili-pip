@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Fx-Bilibili-PIP",
+  "description": "Enhancement with Picture-in-Picture for Bilibili",
+  "version": "1.0.0",
+
+  "applications": {
+    "gecko": {
+      "id": "fx-bilibili-pip@gizeta.me",
+      "strict_min_version": "100.0a1"
+    }
+  },
+
+  "experiment_apis": {
+    "pictureInPictureParent": {
+      "schema": "experiment-apis/pictureInPicture.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "script": "experiment-apis/pictureInPicture.js",
+        "paths": [["pictureInPictureParent"]]
+      }
+    }
+  },
+
+  "background": {
+    "scripts": [
+      "run.js"
+    ]
+  }
+}
