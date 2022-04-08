@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Fx-Bilibili-PIP",
   "description": "Enhancement with Picture-in-Picture for Bilibili",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "applications": {
     "gecko": {
