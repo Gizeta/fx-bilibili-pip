@@ -1,5 +1,11 @@
 "use strict";
 
+function getNodeTextContent(node) {
+  return Array.from(node.childNodes, (x) =>
+    x.nodeType === 3 ? x.textContent : x.nodeName === "BR" ? "\n" : ""
+  ).join("");
+}
+
 class PictureInPictureVideoWrapper {
   setCaptionContainerObserver(video, updateCaptionsFunction) {
     let container = document.querySelector(".bilibili-player-video-subtitle .subtitle-wrap");
@@ -16,7 +22,7 @@ class PictureInPictureVideoWrapper {
           }
 
           updateCaptionsFunction(
-            Array.from(textNodeList, x => x.textContent).join("\n")
+            Array.from(textNodeList, getNodeTextContent).join("\n")
           );
         }
       };
