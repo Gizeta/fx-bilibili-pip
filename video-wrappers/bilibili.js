@@ -7,6 +7,15 @@ function getNodeTextContent(node) {
 }
 
 class PictureInPictureVideoWrapper {
+  setMuted(video, shouldMute) {
+    const muteButton = document.querySelector("button.bilibili-player-iconfont-volume");
+
+    if (video.muted !== shouldMute && muteButton) {
+      muteButton.click();
+    } else {
+      video.muted = shouldMute;
+    }
+  }
   setCaptionContainerObserver(video, updateCaptionsFunction) {
     let container = document.querySelector(".bilibili-player-video-subtitle .subtitle-wrap");
 
