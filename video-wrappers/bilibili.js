@@ -17,14 +17,14 @@ class PictureInPictureVideoWrapper {
     }
   }
   setCaptionContainerObserver(video, updateCaptionsFunction) {
-    let container = document.querySelector(".bilibili-player-video-subtitle .subtitle-wrap");
+    let container = document.querySelector(".bilibili-player-video-subtitle .subtitle-wrap, .bpx-player-subtitle-wrap");
 
     if (container) {
       updateCaptionsFunction("");
       const callback = function(mutationsList, observer) {
         for (const mutation of mutationsList) {
           let textNodeList = container
-            .querySelectorAll(".subtitle-item-text");
+            .querySelectorAll(".subtitle-item-text, .bpx-player-subtitle-panel-text");
           if (!textNodeList) {
             updateCaptionsFunction("");
             return;
