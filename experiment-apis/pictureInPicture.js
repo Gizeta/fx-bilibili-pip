@@ -1,16 +1,11 @@
 "use strict";
 
-ChromeUtils.defineModuleGetter(
-  this,
-  "setInterval",
-  "resource://gre/modules/Timer.jsm"
-);
+const lazy = {};
 
-ChromeUtils.defineModuleGetter(
-  this,
-  "clearInterval",
-  "resource://gre/modules/Timer.jsm"
-);
+ChromeUtils.defineESModuleGetters(lazy, {
+  clearInterval: "resource://gre/modules/Timer.sys.mjs",
+  setInterval: "resource://gre/modules/Timer.sys.mjs",
+});
 
 this.pictureInPictureParent = class extends ExtensionAPI {
   getAPI(context) {
@@ -22,9 +17,9 @@ this.pictureInPictureParent = class extends ExtensionAPI {
           }
 
           let retryTimes = 0;
-          const timer = setInterval(function() {
+          const timer = lazy.setInterval(function() {
             if (retryTimes > 10) {
-              clearInterval(timer);
+              lazy.clearInterval(timer);
               console.error('[fx-bilibili-pip] failed to set overrides');
               return;
             }
@@ -41,7 +36,7 @@ this.pictureInPictureParent = class extends ExtensionAPI {
               "PictureInPicture:SiteOverrides",
               Object.assign(originOverrides, overrides)
             );
-            clearInterval(timer);
+            lazy.clearInterval(timer);
           }, 1000);
         },
       },

@@ -23,8 +23,7 @@ class PictureInPictureVideoWrapper {
       updateCaptionsFunction("");
       const callback = function(mutationsList, observer) {
         for (const mutation of mutationsList) {
-          let textNodeList = container
-            .querySelectorAll(".subtitle-item-text, .bpx-player-subtitle-panel-text");
+          let textNodeList = container.querySelectorAll(".bili-subtitle-x-subtitle-panel-text");
           if (!textNodeList) {
             updateCaptionsFunction("");
             return;
